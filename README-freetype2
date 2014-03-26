@@ -1,0 +1,37 @@
+This is freetype-2.1.4rc1 library DLLs built for EMX -Zmtd.
+
+------------------------------------------------ Install of freetype v2 library
+
+Extract to d:/emx directory or an equivalent:
+
+  unzip freetype2.zip -d d:/emx
+
+One needs to edit "prefix=" in d:/emx/bin/freetype-config to reflect the
+extract directory.
+
+------------------------------------------------- Build of freetype-2.1.4rc1:
+
+FT_CONFIG_OPTION_SYSTEM_ZLIB  			change to #define
+TT_CONFIG_OPTION_BYTECODE_INTERPRETER		likewise
+
+Build as on Unix, then run in ./objs/:
+
+mkdir static
+cp freetype.a static/freetype.a 
+emxomf -p64 static/freetype.a
+# Edit version in freetype.def-base
+cp freetype.def-base freetype.def
+emxexp freetype.lib >>freetype.def
+gcc -s -Zdll -Zomf -Zmtd -o freetyp2.dll -L./static -lfreetype freetype.def -lz_import
+emximp -o freetype.a freetype.def
+emximp -o freetype.lib freetype.def
+
+------------------------------------------------  freetype2.def-base
+
+LIBRARY 'freetyp2' INITINSTANCE TERMINSTANCE
+DESCRIPTION '@#freetype.sourceforge.net/freetype2/:2.1.4rc1#@FreeType 2 is a software font engine'
+STACKSIZE 32768
+CODE LOADONCALL
+DATA LOADONCALL NONSHARED MULTIPLE
+EXPORTS
+

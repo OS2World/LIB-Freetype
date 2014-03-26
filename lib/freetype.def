@@ -1,0 +1,339 @@
+LIBRARY 'freetyp2' INITINSTANCE TERMINSTANCE
+DESCRIPTION '@#freetype.sourceforge.net/freetype2/:2.1.4rc1#@FreeType 2 is a software font engine'
+STACKSIZE 32768
+CODE LOADONCALL
+DATA LOADONCALL NONSHARED MULTIPLE
+EXPORTS
+
+; From freetype.lib(ftsystem)
+  "FT_Stream_Open"
+  "FT_New_Memory"
+  "FT_Done_Memory"
+
+; From freetype.lib(ftdebug)
+  "ft_debug_init"
+
+; From freetype.lib(ftinit)
+  "FT_Init_FreeType"
+  "FT_Done_FreeType"
+  "FT_Add_Default_Modules"
+
+; From freetype.lib(ftbase)
+  "_debug_mem_dummy"
+  "FT_Stream_EnterFrame"
+  "FT_Stream_ReadFields"
+  "FT_MulDiv"
+  "FT_DivFix"
+  "FT_Cos"
+  "FT_Tan"
+  "FT_Atan2"
+  "FT_Vector_Rotate"
+  "FT_Vector_Length"
+  "FT_Vector_Polarize"
+  "FT_Outline_Decompose"
+  "FT_Outline_New_Internal"
+  "FT_Outline_Done_Internal"
+  "FT_Vector_Transform"
+  "FT_GlyphLoader_Reset"
+  "FT_GlyphLoader_CheckPoints"
+  "FT_Free"
+  "FT_GlyphLoader_CheckSubGlyphs"
+  "FT_New_GlyphSlot"
+  "FT_Load_Glyph"
+  "FT_Render_Glyph"
+  "FT_CMap_Done"
+  "FT_Open_Face"
+  "FT_New_Size"
+  "FT_Done_Face"
+  "FT_Attach_Stream"
+  "FT_Done_Size"
+  "FT_Get_Kerning"
+  "FT_Select_Charmap"
+  "FT_CMap_New"
+  "FT_Render_Glyph_Internal"
+  "FT_Add_Module"
+  "FT_Remove_Module"
+  "FT_New_Library"
+  "FT_Done_Library"
+  "FT_Get_Sfnt_Name"
+  "FT_Stream_ReadAt"
+  "FT_Alloc"
+  "FT_Realloc"
+  "FT_Library_Version"
+  "FT_New_Face"
+  "FT_New_Memory_Face"
+  "FT_Attach_File"
+  "FT_Set_Char_Size"
+  "FT_Set_Pixel_Sizes"
+  "FT_Load_Char"
+  "FT_Get_Char_Index"
+  "FT_Set_Transform"
+  "FT_Get_Glyph_Name"
+  "FT_Get_Postscript_Name"
+  "FT_Set_Charmap"
+  "FT_Get_First_Char"
+  "FT_Get_Next_Char"
+  "FT_Get_Name_Index"
+  "FT_MulFix"
+  "FT_RoundFix"
+  "FT_CeilFix"
+  "FT_FloorFix"
+  "FT_List_Find"
+  "FT_List_Add"
+  "FT_List_Insert"
+  "FT_List_Remove"
+  "FT_List_Up"
+  "FT_List_Iterate"
+  "FT_List_Finalize"
+  "FT_Get_Module"
+  "FT_Set_Debug_Hook"
+  "FT_Get_Renderer"
+  "FT_Set_Renderer"
+  "FT_Activate_Size"
+  "FT_GlyphLoader_New"
+  "FT_GlyphLoader_CreateExtra"
+  "FT_GlyphLoader_Done"
+  "FT_GlyphLoader_Rewind"
+  "FT_GlyphLoader_Prepare"
+  "FT_GlyphLoader_Add"
+  "FT_GlyphLoader_CopyPoints"
+  "ft_validator_init"
+  "ft_validator_run"
+  "ft_validator_error"
+  "FT_Get_Module_Interface"
+  "FT_Done_GlyphSlot"
+  "FT_Lookup_Renderer"
+  "FT_Stream_OpenMemory"
+  "FT_Stream_Close"
+  "FT_Stream_Seek"
+  "FT_Stream_Skip"
+  "FT_Stream_Pos"
+  "FT_Stream_Read"
+  "FT_Stream_ExitFrame"
+  "FT_Stream_ExtractFrame"
+  "FT_Stream_ReleaseFrame"
+  "FT_Stream_GetChar"
+  "FT_Stream_GetShort"
+  "FT_Stream_GetOffset"
+  "FT_Stream_GetLong"
+  "FT_Stream_GetShortLE"
+  "FT_Stream_GetLongLE"
+  "FT_Stream_ReadChar"
+  "FT_Stream_ReadShort"
+  "FT_Stream_ReadOffset"
+  "FT_Stream_ReadLong"
+  "FT_Stream_ReadShortLE"
+  "FT_Stream_ReadLongLE"
+  "FT_SqrtFixed"
+  "FT_Sqrt32"
+  "FT_Add64"
+  "FT_MulTo64"
+  "FT_Div64by32"
+  "FT_Sin"
+  "FT_Angle_Diff"
+  "FT_Vector_Unit"
+  "FT_Vector_From_Polar"
+  "FT_Outline_New"
+  "FT_Outline_Done"
+  "FT_Outline_Check"
+  "FT_Outline_Get_CBox"
+  "FT_Outline_Translate"
+  "FT_Outline_Copy"
+  "FT_Outline_Transform"
+  "FT_Outline_Reverse"
+  "FT_Outline_Get_Bitmap"
+  "FT_Outline_Render"
+  "FT_Get_Sfnt_Table"
+  "FT_Load_Sfnt_Table"
+  "FT_Set_Hint_Flags"
+  "FT_Get_Sfnt_Name_Count"
+
+; From freetype.lib(ftglyph)
+  "ft_bitmap_glyph_class"
+  "ft_outline_glyph_class"
+  "FT_Get_Glyph"
+  "FT_Done_Glyph"
+  "FT_Glyph_To_Bitmap"
+  "FT_Glyph_Copy"
+  "FT_Glyph_Transform"
+  "FT_Glyph_Get_CBox"
+  "FT_Matrix_Multiply"
+  "FT_Matrix_Invert"
+
+; From freetype.lib(ftmm)
+  "FT_Get_Multi_Master"
+  "FT_Set_MM_Design_Coordinates"
+  "FT_Set_MM_Blend_Coordinates"
+
+; From freetype.lib(ftbdf)
+  "FT_Get_BDF_Charset_ID"
+  "FT_Get_BDF_Property"
+
+; From freetype.lib(fttype1)
+  "FT_Has_PS_Glyph_Names"
+  "FT_Get_PS_Font_Info"
+
+; From freetype.lib(ftxf86)
+  "FT_Get_X11_Font_Format"
+
+; From freetype.lib(ftpfr)
+  "FT_Get_PFR_Metrics"
+  "FT_Get_PFR_Kerning"
+  "FT_Get_PFR_Advance"
+
+; From freetype.lib(ftstroker)
+  "FT_Stroker_LineTo"
+  "FT_Stroker_ConicTo"
+  "FT_Stroker_CubicTo"
+  "FT_Stroker_EndSubPath"
+  "FT_Stroker_GetCounts"
+  "FT_Stroker_Export"
+  "FT_Stroker_ParseOutline"
+  "FT_Stroker_New"
+  "FT_Stroker_Set"
+  "FT_Stroker_BeginSubPath"
+  "FT_Stroker_Done"
+
+; From freetype.lib(ftwinfnt)
+  "FT_Get_WinFNT_Header"
+
+; From freetype.lib(ftbbox)
+  "FT_Outline_Get_BBox"
+
+; From freetype.lib(autohint)
+  "ah_arctan"
+  "ft_autohinter_service"
+  "autohint_module_class"
+
+; From freetype.lib(bdf)
+  "bdf_cmap_class"
+  "bdf_driver_class"
+
+; From freetype.lib(ftcache)
+  "FT_LruList_Lookup"
+  "ftc_face_list_class"
+  "ftc_size_list_class"
+  "ftc_family_table_alloc"
+  "FTC_Manager_New"
+  "FT_LruList_Reset"
+  "FTC_Manager_Done"
+  "ftc_cache_init"
+  "ftc_cache_clear"
+  "ftc_cache_lookup"
+  "ftc_node_destroy"
+  "ftc_image_cache_class"
+  "ftc_cache_done"
+  "ftc_glyph_family_done"
+  "ftc_glyph_node_compare"
+  "FTC_ImageCache_New"
+  "ftc_sbit_cache_class"
+  "FTC_SBitCache_New"
+  "ftc_cmap_cache_class"
+  "ftc_family_done"
+  "ftc_node_done"
+  "FTC_CMapCache_New"
+  "FTC_CMapCache_Lookup"
+  "FTC_Manager_Reset"
+  "FTC_Manager_Lookup_Face"
+  "FTC_Manager_Lookup_Size"
+  "FT_LruList_New"
+  "FT_LruList_Destroy"
+  "FT_LruList_Remove"
+  "FT_LruList_Remove_Selection"
+  "ftc_family_init"
+  "ftc_family_table_free"
+  "FTC_Manager_Compress"
+  "FTC_Manager_Register_Cache"
+  "FTC_Node_Unref"
+  "ftc_glyph_node_init"
+  "ftc_glyph_node_done"
+  "ftc_glyph_family_init"
+  "FTC_ImageCache_Lookup"
+  "FTC_Image_Cache_New"
+  "FTC_Image_Cache_Lookup"
+  "FTC_SBitCache_Lookup"
+  "FTC_SBit_Cache_New"
+  "FTC_SBit_Cache_Lookup"
+
+; From freetype.lib(cff)
+  "cff_driver_class"
+  "cff_cmap_unicode_class_rec"
+  "cff_cmap_encoding_class_rec"
+
+; From freetype.lib(type1cid)
+  "t1cid_driver_class"
+
+; From freetype.lib(ftgzip)
+  "FT_Stream_OpenGzip"
+
+; From freetype.lib(pcf)
+  "pcf_cmap_class"
+  "pcf_driver_class"
+  "BitOrderInvert"
+  "TwoByteSwap"
+  "FourByteSwap"
+  "RepadBitmap"
+
+; From freetype.lib(pfr)
+  "pfr_cmap_class_rec"
+  "pfr_service_rec"
+  "pfr_driver_class"
+
+; From freetype.lib(psaux)
+  "ps_table_funcs"
+  "ps_parser_funcs"
+  "t1_builder_funcs"
+  "t1_decoder_funcs"
+  "t1_cmap_classes"
+  "t1_cmap_standard_class_rec"
+  "t1_cmap_expert_class_rec"
+  "t1_cmap_custom_class_rec"
+  "t1_cmap_unicode_class_rec"
+  "psaux_module_class"
+
+; From freetype.lib(pshinter)
+  "ps2_hints_apply"
+  "ps3_hints_apply"
+  "pshinter_module_class"
+  "ps1_hints_apply"
+
+; From freetype.lib(psnames)
+  "psnames_module_class"
+
+; From freetype.lib(raster)
+  "ft_standard_raster"
+  "ft_raster1_renderer_class"
+  "ft_raster5_renderer_class"
+
+; From freetype.lib(sfnt)
+  "tt_cmap0_class_rec"
+  "tt_cmap2_class_rec"
+  "tt_cmap4_class_rec"
+  "tt_cmap6_class_rec"
+  "tt_cmap8_class_rec"
+  "tt_cmap10_class_rec"
+  "tt_cmap12_class_rec"
+  "sfnt_module_class"
+  "sbit_metrics_fields"
+
+; From freetype.lib(smooth)
+  "gray_raster_render"
+  "ft_grays_raster"
+  "ft_smooth_renderer_class"
+  "ft_smooth_lcd_renderer_class"
+  "ft_smooth_lcdv_renderer_class"
+
+; From freetype.lib(truetype)
+  "tt_driver_class"
+  "TT_New_Context"
+  "tt_default_graphics_state"
+  "TT_RunIns"
+
+; From freetype.lib(type1)
+  "t1_driver_class"
+
+; From freetype.lib(type42)
+  "t42_driver_class"
+
+; From freetype.lib(winfnt)
+  "winfnt_driver_class"
